@@ -1,0 +1,27 @@
+[
+    {
+        "titulo":"Primer articulo",
+        "fecha":"2025-10-16",
+        "autor":"Ruth Sainz",
+        "contenido":"Este es el contenido del primer articulo"
+    },
+
+    {
+        "titulo":"Segundo articulo",
+        "fecha":"2025-10-16",
+        "autor":"Ruth Sainz",
+        "contenido":"Este es el contenido del segundo articulo"
+    },
+    {
+        "titulo":"tercer articulo",
+        "fecha":"2025-10-16",
+        "autor":"Ruth Sainz",
+        "contenido":"Este es el contenido del tercer articulo"
+    },
+    {
+        "titulo":"Cuarto articulo",
+        "fecha":"2025-10-16",
+        "autor":"Ruth Sainz",
+        "contenido":"Este es el contenido del cuarto articulo"
+    }
+]

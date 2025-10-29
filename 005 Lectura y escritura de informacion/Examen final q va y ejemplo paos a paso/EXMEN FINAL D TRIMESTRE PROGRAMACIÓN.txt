@@ -1,0 +1,10 @@
+Va a ser un CRUD en Python (No hay SQL)
+Usar Clases
+
+1.-Presentará una pantalla de bienvenida
+2.-Ofrecerá al usuario 4 opciones(Crear, Leer, Actualizar, Eliminar)
+3.-Habrá que definir una lase en base a una entidad que se proporcionará a cada uno
+4.-Las entidades se guardaran como objetos en la memoria
+5.- Las entidades persistirán en la memoria usando un pickle
+
+(NO métodos set y get)
