@@ -7,7 +7,10 @@ class Cliente ():
 print("######Gestión de clientes########")
 print("######RUth Sainz Santos-Olmo########")
 
-clientes = []
+
+with open("clientes.pkl", "rb") as archivo:
+    clientes = pickle.load(archivo)
+
 
 while True:
     print("Escoge una opción :")
@@ -17,7 +20,8 @@ while True:
     print("4.-Eliminar un cliente")
 
     opcion = int(input("Escoge una opcion: "))
-    
+ 
+
     if opcion == 1:
         nombre = input("Introduce el nombre: ")
         apellidos = input("Introduce los apellidos: ")
@@ -28,10 +32,3 @@ while True:
     elif opcion == 2:
         for cliente in clientes:
             print(cliente.nombre,cliente.apellidos,cliente.email)
-
-    elif opcion == 3:
-        pass
-
-    elif opcion ==4:
-       pass
-        
