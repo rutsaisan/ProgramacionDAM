@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>	
+    <style>
+      #rojo{width:50px;height:50px;background:red;border:1px solid black;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+     let lienzo = document.querySelector("canvas");  //Atrapo canvas
+      lienzo.width = 512;					         // Le pongo anchura
+      lienzo.height = 512;				      		// Le pongo altura
+      let contexto = lienzo.getContext("2d");		// Voy a dibujar en 2D
+      
+      // Ahora voy a dibujar un circulo
+      contexto.beginPath();			// Empiezo a dibujar
+      // arco: xinicial, yinicial, radio, anguloinicial, angulofinal
+      contexto.arc(256,256,200,0,Math.PI*2)  //Dibujo un circulo
+      contexto.stroke();                     //Dibujo la linea
+
+      // Ahora voy a du¡ibujar una linea
+      contexto.beginPath();  //Empiezo a dibujar
+      contexto.moveTo(0,256);   //Muevo el cursor sin dibujar
+      contexto.lineTo(512,256);  //Muevo el cursor pero ya dibujo
+      contexto.stroke();          //Realizo el trazo
+
+      //Ahora vpy a dibujar la linea vertical
+      contexto.beginPath();  //Empiezo a dibujar
+      contexto.moveTo(256,0);   //Muevo el cursor sin dibujar
+      contexto.lineTo(256,512);  //Muevo el cursor pero ya dibujo
+      contexto.stroke();          //Realizo el trazo
+
+      // Ahora dibujo una linea con angulo
+      let angulo = 1;							// Defino un angulo, acordaos que estamos en rad
+      contexto.beginPath();						// Empiezo a dibujar
+      contexto.moveTo(256,256);					// Muevo el cursor al centro
+      contexto.lineTo(256+200*Math.cos(angulo),256+200*Math.sin(angulo));		// Muevo el curso pero ya dibujando
+      contexto.stroke()
+    </script>
+  </body>
+</html>
