@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background:#111;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+        #reloj{
+            position:relative;
+            width:300px;
+            height:300px;
+            border:8px solid white;
+            border-radius:50%;
+        }
+        .manecilla{
+            position:absolute;
+            width:4px;
+            background:white;
+            left:50%;
+            bottom:50%;
+            transform-origin:bottom center;
+        }
+        #hora{height:70px;}
+        #minuto{height:100px;}
+        #segundo{height:120px; background:red;}
+    </style>
+</head>
+<body>
+
+<div id="reloj">
+    <div id="hora" class="manecilla"></div>
+    <div id="minuto" class="manecilla"></div>
+    <div id="segundo" class="manecilla"></div>
+</div>
+
+<script>
+    function actualizarReloj(){
+        let ahora = new Date();
+
+        let horas = ahora.getHours();
+        let minutos = ahora.getMinutes();
+        let segundos = ahora.getSeconds();
+
+        let gradosHora = (horas % 12) * 30 + minutos * 0.5;
+        let gradosMinuto = minutos * 6;
+        let gradosSegundo = segundos * 6;
+
+        document.getElementById("hora").style.transform = "rotate(" + gradosHora + "deg)";
+        document.getElementById("minuto").style.transform = "rotate(" + gradosMinuto + "deg)";
+        document.getElementById("segundo").style.transform = "rotate(" + gradosSegundo + "deg)";
+
+        setTimeout(actualizarReloj, 1000);
+    }
+
+    actualizarReloj();
+</script>
+
+</body>
+</html>

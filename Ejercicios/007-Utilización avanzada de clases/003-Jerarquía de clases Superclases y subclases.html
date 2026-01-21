@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+      body{background:url("Fondo.jpg");background-size:cover;}
+    </style>
+  </head>
+  <body>
+    <img src="naveespacial.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				
+    let altopagina = window.innerHeight			
+
+    // Clase Roca (lo único que pide el enunciado)
+    class Roca{
+      constructor(x,y,a,e){
+        this.posx = x;
+        this.posy = y;
+        this.angulo = a;
+        this.escala = e;
+      }
+    }
+
+    // Creo rocas estáticas
+    let numero_rocas = 100;
+    let rocas = [];
+    for(let i = 0;i<numero_rocas;i++){
+      let posx_aleatoria = Math.random()*anchopagina;
+      let posy_aleatoria = Math.random()*altopagina;
+      let angulo_aleatorio = Math.random()*360;
+      let escala_aleatoria = Math.random()*1;
+      rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria
+      ));
+    }
+
+    // Clase Jugador simple (sin herencia)
+    class Jugador{
+      constructor(x,y){
+        this.posx = x;
+        this.posy = y;
+      }
+    }
+
+    // Instancia del jugador en el centro
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      anchopagina/2,
+      altopagina/2
+    );
+    nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+
+    // Movimiento WASD
+    document.onkeydown = function(tecla){
+      switch(tecla.keyCode){
+        case 87: // W
+          InstanciaJugador.posy -= 5;
+          break;
+        case 83: // S
+          InstanciaJugador.posy += 5;
+          break;
+        case 65: // A
+          InstanciaJugador.posx -= 5;
+          break;
+        case 68: // D
+          InstanciaJugador.posx += 5;
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+
+    // Dibujar rocas (estáticas)
+    for(let i = 0;i<numero_rocas;i++){
+      let nueva_roca = document.createElement("img");
+      nueva_roca.classList.add("roca");
+      nueva_roca.src = "roca.png";
+      nueva_roca.style.position = "absolute";
+      nueva_roca.style.left = rocas[i].posx+"px";
+      nueva_roca.style.top = rocas[i].posy+"px";
+      document.querySelector("body").appendChild(nueva_roca);
+    }
+  </script>
+</html>
